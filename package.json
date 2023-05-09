@@ -3,13 +3,39 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@hookform/resolvers": "^3.1.0",
+    "@react-google-maps/api": "^2.18.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/google-map-react": "^2.1.7",
+    "@types/jest": "^27.5.2",
+    "@types/lodash.debounce": "^4.0.7",
+    "@types/lodash.range": "^3.2.7",
+    "@types/node": "^16.18.11",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.10",
+    "axios": "^1.2.2",
+    "google-map-react": "^2.2.0",
+    "google-maps-react": "^2.0.6",
+    "lodash.range": "^3.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-google-maps": "^9.4.5",
+    "react-google-places-autocomplete": "^4.0.1",
+    "react-hook-form": "^7.43.9",
+    "react-icons": "^4.7.1",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "redux": "^4.2.0",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.4.2",
+    "sweetalert2": "^11.7.2",
+    "thunk": "^0.0.1",
+    "typescript": "^4.9.4",
+    "web-vitals": "^2.1.4",
+    "yup": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,5 +60,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/redux-persist": "^4.3.1",
+    "tailwindcss": "^3.2.4"
   }
 }

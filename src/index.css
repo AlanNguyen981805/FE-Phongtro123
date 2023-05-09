@@ -1,13 +1,43 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.start-item-post {
+    display: inline-block;
+    padding-bottom: 2px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+input[type="range"]::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    height: 5px;
 }
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    height: 5px;
+    width: 2rem;
+    height: 2rem;
+    background-color: white;
+    border: solid 1px #ccc;
+    border-radius: 1rem;
+    margin-top: -0.6rem;
+    pointer-events: auto;
+    cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb:active {
+    border: 1px solid rgb(21, 48, 199);
+}
+
+.multiline-ellipsis {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; /* start showing ellipsis when 3rd line is reached */
+  }
+
+.line2-ellipsis {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* start showing ellipsis when 3rd line is reached */
+  }
