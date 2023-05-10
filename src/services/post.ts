@@ -100,7 +100,7 @@ const transformParamsToDtoPost = (query?: string) => {
   const splitQuery = query.split("&");
   splitQuery.map((item) => {
     const inner = item.split("=");
-    where += `&${[inner[0]]}=${inner[1]}`;
+    // where += `&${[inner[0]]}=${inner[1]}`;
     if (inner[0] === PARAMS_SEARCH.CATEGORY) {
       where += `&${[inner[0]]}=${inner[1]}`;
     }
