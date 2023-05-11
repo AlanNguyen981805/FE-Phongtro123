@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { Button } from "../../components";
+import { Button, Loading } from "../../components";
 import { MENU_DROPDOWN, path } from "../../ultils/constanst";
 import icons from "../../ultils/icons";
 import { RootStore } from "../../types/base";
@@ -63,7 +63,7 @@ const Header = () => {
                 />
               </>
             )}
-            {isLoggedIn && (
+            {isLoggedIn ? (
               <>
                 <div className="flex mr-6">
                   <div className="flex">
@@ -133,7 +133,7 @@ const Header = () => {
                   onClick={() => dispatch(actions.logout())}
                 /> */}
               </>
-            )}
+            ): <Loading />}
           </div>
           <Button
             onClick={() => navigate(`${path.SYSTEM}${path.CREATE_POST}`)}

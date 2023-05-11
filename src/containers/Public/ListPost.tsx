@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, ItemPost } from "../../components";
+import { Button, ItemPost, Loading } from "../../components";
 import { IPost } from "../../types/post";
 import * as actions from "./../../store/actions";
 import { ICategory } from "../../types/cate";
@@ -63,11 +63,11 @@ const ListPost: React.FC<IProps> = ({ page, category }) => {
         </div>
         <div className="flex items-center gap-2 my-2">
           <span>Sắp xếp</span>
-          {renderOrder('view', 'Nổi bật')}
-          {renderOrder('latest', 'Mới nhất')}
+          {renderOrder("view", "Nổi bật")}
+          {renderOrder("latest", "Mới nhất")}
         </div>
-        <div className="items">
-          {listPost.length > 0 &&
+        <div className=" items">
+          {listPost.length > 0 ? (
             listPost.map((item) => {
               return (
                 <ItemPost
@@ -87,10 +87,10 @@ const ListPost: React.FC<IProps> = ({ page, category }) => {
                   view={item.view}
                 />
               );
-            })}
-
-          {/* <ItemPost />
-        <ItemPost /> */}
+            })
+          ) : (
+            <Loading />
+          )}
         </div>
       </div>
     </>
