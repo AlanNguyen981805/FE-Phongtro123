@@ -5,7 +5,7 @@ const { ImPencil2, MdOutlineLibraryBooks, BiUserPin, AiOutlineLogout , RiHeartLi
 export const path = {
   HOME: "/*",
   HOME__PAGE: ":page",
-  DETAIL_POST: "chi-tiet/:slug",
+  DETAIL_POST: "chi-tiet/",
   LOGIN: "login",
   CHO_THUE_CAN_HO: "cho-thue-can-ho",
   CHO_THUE_PHONG_TRO: "cho-thue-phong-tro",
@@ -54,6 +54,7 @@ export const PARAMS_SEARCH = {
   PRICE: "price",
   CATEGORY: "categoryCode",
   ACREAGE: "acreage",
+  ORDER: "order",
 };
 
 export const MENU_DROPDOWN = [

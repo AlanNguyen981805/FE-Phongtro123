@@ -3,6 +3,7 @@ import icons from "../ultils/icons";
 import { IPost } from "../types/post";
 import { formatCurrency, formatDateToDesc } from "../ultils/function-helper";
 import { Link } from "react-router-dom";
+import { path } from "../ultils/constanst";
 
 interface IProps {
   images: string[];
@@ -73,7 +74,7 @@ const ItemPost: FC<IProps> = ({
       <div className="w-3/5">
         <div className="flex items-start justify-between w-full gap-4">
           <Link
-            to={"chi-tiet/" + id}
+            to={`/${path.DETAIL_POST}${id}`}
             className="font-semibold text-red-600 cursor-pointer line2-ellipsis hover:underline"
           >
             {[...Array(Number(star))].map((star, index) => {

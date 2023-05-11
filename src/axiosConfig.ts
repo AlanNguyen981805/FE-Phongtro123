@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const PREFIX = "/api/v1/";
+
 const instance = axios.create({
-  baseURL: process.env.REACT_APP_SERVER_URL,
+  baseURL: process.env.REACT_APP_SERVER_URL + PREFIX,
 });
 
 // Thêm một bộ đón chặn request
@@ -9,15 +11,15 @@ instance.interceptors.request.use(
   function (config: any) {
     // Làm gì đó trước khi request dược gửi đi
     let token = window.localStorage.getItem("persist:auth");
-    if(token) {
-      const parseToken = JSON.parse(token?.toString())?.token.slice(1, -1)
+    if (token) {
+      const parseToken = JSON.parse(token?.toString())?.token.slice(1, -1);
       config.headers = {
-        Authorization:  parseToken !== "ul" ? `Bearer ${parseToken}` : null
-      }
+        Authorization: parseToken !== "ul" ? `Bearer ${parseToken}` : null,
+      };
     } else {
       config.headers = {
-        Authorization:  null
-      }
+        Authorization: null,
+      };
     }
     return config;
   },

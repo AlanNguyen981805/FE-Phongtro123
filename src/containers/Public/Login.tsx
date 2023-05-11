@@ -17,11 +17,12 @@ const Login = () => {
   const { isLoggedIn, msg, token } = useSelector(
     (state: RootStore) => state.auth
   );
-  const [payloadAuth, setPayloadAuth] = useState<IFormRegister>({
+  const initialAuth = {
     name: "",
     password: "",
     phone: "",
-  });
+  };
+  const [payloadAuth, setPayloadAuth] = useState<IFormRegister>(initialAuth);
 
   const handleSubmit = async () => {
     let finalPayload = isRegister
@@ -79,8 +80,12 @@ const Login = () => {
     return inValids;
   };
 
+  const resetAuth = () => {
+    setPayloadAuth(initialAuth);
+  };
+
   useEffect(() => {
-    if (isLoggedIn && token) {
+    if (isLoggedIn && token && location.pathname === "/login") {
       navigate("/");
     }
   }, [isLoggedIn, navigate, dispatch, token]);
@@ -93,8 +98,12 @@ const Login = () => {
     setIsRegister(location.state?.flag);
   }, [location.state?.flag]);
 
+  useEffect(() => {
+    resetAuth();
+  }, [isRegister]);
+
   return (
-    <div className="bg-white p-[30px] pb-[100px] w-[600px] rounded-md shadow-md mt-5">
+    <div className="bg-white p-[30px] mb-[30px] w-[600px] rounded-md shadow-md mt-5">
       <h3 className="text-2xl font-semibold">
         {isRegister ? "Đăng ký tài khoản" : "Đăng nhập"}
       </h3>
@@ -143,7 +152,6 @@ const Login = () => {
                 className="text-blue-500 cursor-pointer hover:underline"
                 onClick={() => {
                   setIsRegister(false);
-                  setPayloadAuth({ name: "", password: "", phone: "" });
                 }}
               >
                 Đăng nhập ngay
@@ -159,7 +167,6 @@ const Login = () => {
               className="text-[blue] hover:text-[red] cursor-pointer"
               onClick={() => {
                 setIsRegister(true);
-                setPayloadAuth({ name: "", password: "", phone: "" });
               }}
             >
               Tạo tài khoản mới

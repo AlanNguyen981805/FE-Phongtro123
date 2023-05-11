@@ -136,6 +136,7 @@ const Header = () => {
             )}
           </div>
           <Button
+            onClick={() => navigate(`${path.SYSTEM}${path.CREATE_POST}`)}
             text="Đăng tin mới"
             textColor="text-white"
             bgColor="bg-secondary2"

@@ -1,4 +1,4 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { DetailPost, Home, HomePage, Login, Rental } from "./containers/Public";
 import { path } from "./ultils/constanst";
 import { useEffect } from "react";
@@ -15,7 +15,6 @@ import ContactUs from "./containers/System/ContactUs";
 
 function App() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { isLoggedIn } = useSelector((state: RootStore) => state.auth);
 
   useEffect(() => {
@@ -29,9 +28,6 @@ function App() {
       setTimeout(() => {
         dispatch(actions.getCurrentUser());
       }, 1000);
-      // navigate("/");
-    } else {
-      navigate(path.LOGIN);
     }
   }, [isLoggedIn]);
 
@@ -39,9 +35,9 @@ function App() {
     <div className="w-full h-full m-auto bg-primary">
       <Routes>
         <Route path={path.HOME} element={<Home />}>
-          <Route path="" element={<HomePage />} />
+          <Route path="/*" element={<HomePage />} />
           <Route path={path.HOME__PAGE} element={<HomePage />} />
-          <Route path={path.DETAIL_POST} element={<DetailPost />} />
+          <Route path={path.DETAIL_POST + ':slug'} element={<DetailPost />} />
           <Route path={path.LOGIN} element={<Login />} />
           <Route path={path.CHO_THUE_CAN_HO} element={<Rental />} />
           <Route path={path.CHO_THUE_PHONG_TRO} element={<Rental />} />

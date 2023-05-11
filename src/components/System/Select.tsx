@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, memo } from "react";
 import { ISelect } from "../../types/base";
 import { IFormPost } from "../../types/post";
 import { UseFormRegisterReturn } from "react-hook-form";
@@ -46,4 +46,4 @@ const Select: FC<IProps> = ({
   );
 };
 
-export default Select;
+export default memo(Select);

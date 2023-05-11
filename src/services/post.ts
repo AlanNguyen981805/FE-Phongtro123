@@ -1,13 +1,13 @@
 import axiosConfig from "../axiosConfig";
-import { IFormPost } from "../types/post";
 import { PARAMS_SEARCH } from "../ultils/constanst";
+import { CONST_API } from "./const";
 
 export const apiGetPosts = () =>
   new Promise(async (resolve, reject) => {
     try {
       const response = axiosConfig({
         method: "get",
-        url: "/api/v1/post/get-all",
+        url: `${CONST_API.POST.GET_ALL}`,
       });
       resolve(response);
     } catch (error) {
@@ -19,7 +19,7 @@ export const apiGetDetailPost = (id: string) =>
     try {
       const response = axiosConfig({
         method: "get",
-        url: "/api/v1/post/" + id,
+        url: `${CONST_API.POST.DETAIL}` + id,
       });
       resolve(response);
     } catch (error) {
@@ -32,7 +32,7 @@ export const apiGetPostsLimit = (query?: string) =>
     try {
       const response = axiosConfig({
         method: "get",
-        url: `/api/v1/post/limit?${transformParamsToDtoPost(query)}`,
+        url: `${CONST_API.POST.LIMIT}?${transformParamsToDtoPost(query)}`,
       });
       resolve(response);
     } catch (error) {
@@ -45,7 +45,7 @@ export const apiGetNewPosts = (query?: string) =>
     try {
       const response = axiosConfig({
         method: "get",
-        url: `/api/v1/post/new-post`,
+        url: `${CONST_API.POST.NEW_POSTS}`,
       });
       resolve(response);
     } catch (error) {
@@ -58,7 +58,7 @@ export const apiGetPostsAdmin = (query?: string) =>
     try {
       const response = axiosConfig({
         method: "post",
-        url: `/api/v1/post/limit-admin`,
+        url: `${CONST_API.POST.LIMIT_ADMIN}`,
       });
       resolve(response);
     } catch (error) {
@@ -71,28 +71,28 @@ export const apiCreateNewPost = (data: any) => {
     try {
       const response = axiosConfig({
         method: "post",
-        url: `/api/v1/post/create-post`,
-        data
+        url: `${CONST_API.POST.NEW_POSTS}`,
+        data,
       });
       resolve(response);
     } catch (error) {
       reject(error);
     }
   });
-}
+};
 export const apiDeletePost = (id: string) => {
   return new Promise(async (resolve, reject) => {
     try {
       const response = axiosConfig({
         method: "delete",
-        url: `/api/v1/post/${id}/delete-post`,
+        url: `${CONST_API.POST.DETAIL}${id}${CONST_API.POST.DELETE}`,
       });
       resolve(response);
     } catch (error) {
       reject(error);
     }
   });
-}
+};
 
 const transformParamsToDtoPost = (query?: string) => {
   if (!query) return "";
@@ -102,6 +102,9 @@ const transformParamsToDtoPost = (query?: string) => {
     const inner = item.split("=");
     // where += `&${[inner[0]]}=${inner[1]}`;
     if (inner[0] === PARAMS_SEARCH.CATEGORY) {
+      where += `&${[inner[0]]}=${inner[1]}`;
+    }
+    if (inner[0] === PARAMS_SEARCH.ORDER) {
       where += `&${[inner[0]]}=${inner[1]}`;
     }
     if (inner[0] === PARAMS_SEARCH.AREA) {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { IFormPost } from "../../types/post";
 import { UseFormRegisterReturn } from "react-hook-form";
 
@@ -37,4 +37,4 @@ const TextArea: React.FC<IProps> = ({
   );
 };
 
-export default TextArea;
+export default memo(TextArea);

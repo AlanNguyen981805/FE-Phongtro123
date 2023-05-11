@@ -1,4 +1,4 @@
-import React, { FC, HTMLInputTypeAttribute } from "react";
+import React, { FC, HTMLInputTypeAttribute, memo } from "react";
 
 interface IProps {
   label: string;
@@ -53,4 +53,4 @@ const InputForm: FC<IProps> = ({
   );
 };
 
-export default InputForm;
+export default memo(InputForm);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
 
 interface IProps{
@@ -71,4 +71,4 @@ const Input: React.FC<IProps> = ({
   );
 };
 
-export default Input;
+export default memo(Input);

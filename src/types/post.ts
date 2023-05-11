@@ -52,8 +52,11 @@ export interface IFormPost {
   phone: string;
   address: string;
   city: string;
+  nameCity: string;
+  nameDistrict: string;
+  nameWard: string;
   district: string;
-  ward: string,
-  fullAddress: string,
-  fullName: string
+  ward: string;
+  fullAddress: string;
+  fullName: string;
 }

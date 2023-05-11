@@ -21,7 +21,6 @@ const DetailPost = () => {
   const [detailPost, setDetailPost] = useState<IPost | null>(null);
   let { slug } = useParams();
 
-  console.log(slug)
   const getDetailPost = async () => {
     if (!slug) return;
     try {

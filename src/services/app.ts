@@ -1,11 +1,12 @@
 import axiosConfig from "../axiosConfig";
+import { CONST_API } from "./const";
 
 export const apiGetCategories = () =>
   new Promise(async (resolve, reject) => {
     try {
       const response = axiosConfig({
         method: "get",
-        url: "/api/v1/category/get-all",
+        url: `${CONST_API.CATEGORY.GET_ALL}`,
       });
       resolve(response);
     } catch (error) {
@@ -18,7 +19,7 @@ export const apiGetCategories = () =>
     try {
       const response = axiosConfig({
         method: "get",
-        url: "/api/v1/area/get-all",
+        url: `${CONST_API.AREA.GET_ALL}`,
       });
       resolve(response);
     } catch (error) {
@@ -31,7 +32,7 @@ export const apiGetCategories = () =>
     try {
       const response = axiosConfig({
         method: "get",
-        url: "/api/v1/price/get-all",
+        url: `${CONST_API.PRICE.GET_ALL}`,
       });
       resolve(response);
     } catch (error) {

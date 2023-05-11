@@ -82,7 +82,7 @@ const CreatePost = () => {
         .then((data: any) => {
           images = [...images, data.secure_url];
           setValue("media", images.join(","));
-          setImgPreview((prev) => [...prev, ...images]);
+          setImgPreview((prev) => [...prev, data.secure_url]);
         });
     }
   };
@@ -92,15 +92,15 @@ const CreatePost = () => {
       media: data.media,
       city: {
         id: data.city,
-        name: "",
+        name: data.nameCity ?? "",
       },
       district: {
         id: data.district,
-        name: "",
+        name: data.nameDistrict ?? "",
       },
       ward: {
         id: data.ward,
-        name: "",
+        name: data.nameDistrict ?? "",
       },
       fullAddress: data.fullAddress,
       categoryCode: data.category,
@@ -131,7 +131,6 @@ const CreatePost = () => {
     setValue("fullName", userData?.name);
     setValue("phone", userData?.phone);
     setValue("idUser", userData?.id!);
-    
   }, [userData]);
 
   return (
@@ -183,14 +182,14 @@ const CreatePost = () => {
                         <img
                           src={item}
                           alt="preview"
-                          className="object-cover w-full h-full rounded-md"
+                          className="object-cover w-full h-full rounded-md w-[150px] h-[150px]"
                         />
-                        <span
+                        {/* <span
                           title="Xóa"
                           className="absolute top-0 right-0 p-2 bg-gray-300 rounded-full cursor-pointer hover:bg-gray-400"
                         >
                           <ImBin />
-                        </span>
+                        </span> */}
                       </div>
                     );
                   })}

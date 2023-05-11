@@ -33,14 +33,23 @@ const Address: React.FC<IProps> = ({
 
   const onChangeCity = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCitySelected(e.target.value);
+    const found = cities?.find((item) => item.value === e.target.value)
+    if(!found) return
+    setValue("nameCity", found?.label)
   };
 
   const onChangeDistrict = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setDistrictSelected(e.target.value);
+    const found = districts?.find((item) => item.value === e.target.value)
+    if(!found) return
+    setValue("nameDistrict", found?.label)
   };
 
   const onChangeWard = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setWardSelected(e.target.value);
+    const found = wards?.find((item) => item.value === e.target.value)
+    if(!found) return
+    setValue("nameWard", found?.label)
   };
 
   const getCities = async () => {

@@ -1,12 +1,13 @@
 import axiosConfig from "../axiosConfig";
 import { IFormUser } from "../types/user";
+import { CONST_API } from "./const";
 
 export const apiGetCurrentUser = () =>
   new Promise(async (resolve, reject) => {
     try {
       const response = axiosConfig({
         method: "GET",
-        url: "/api/v1/user/get-current-user",
+        url: `${CONST_API.USER.CURRENT_USER}`,
       });
       resolve(response);
     } catch (error) {
@@ -19,7 +20,7 @@ export const apiUpdateUser = (data: IFormUser) =>
     try {
       const response = axiosConfig({
         method: "POST",
-        url: "/api/v1/user/update",
+        url: `${CONST_API.USER.UPDATE}`,
         data: { payload: data },
       });
       resolve(response);

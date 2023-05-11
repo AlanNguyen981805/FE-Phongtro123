@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { IFormPost } from "../../types/post";
 import Input from "./Input";
 import { TextArea, Select } from "./index";
@@ -96,4 +96,4 @@ const Overview: React.FC<IProps> = ({ register, errors }) => {
   );
 };
 
-export default Overview;
+export default memo(Overview);
