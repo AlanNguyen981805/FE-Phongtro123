@@ -67,7 +67,7 @@ const ListPost: React.FC<IProps> = ({ page, category }) => {
           {renderOrder("latest", "Mới nhất")}
         </div>
         <div className=" items">
-          {listPost.length > 0 ? (
+          {listPost.length > 0 && (
             listPost.map((item) => {
               return (
                 <ItemPost
@@ -88,8 +88,6 @@ const ListPost: React.FC<IProps> = ({ page, category }) => {
                 />
               );
             })
-          ) : (
-            <Loading />
           )}
         </div>
       </div>

@@ -63,7 +63,7 @@ const Header = () => {
                 />
               </>
             )}
-            {isLoggedIn ? (
+            {isLoggedIn && (
               <>
                 <div className="flex mr-6">
                   <div className="flex">
@@ -133,7 +133,7 @@ const Header = () => {
                   onClick={() => dispatch(actions.logout())}
                 /> */}
               </>
-            ): <Loading />}
+            )}
           </div>
           <Button
             onClick={() => navigate(`${path.SYSTEM}${path.CREATE_POST}`)}

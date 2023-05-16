@@ -71,7 +71,7 @@ export const apiCreateNewPost = (data: any) => {
     try {
       const response = axiosConfig({
         method: "post",
-        url: `${CONST_API.POST.NEW_POSTS}`,
+        url: `${CONST_API.POST.CREATE}`,
         data,
       });
       resolve(response);
